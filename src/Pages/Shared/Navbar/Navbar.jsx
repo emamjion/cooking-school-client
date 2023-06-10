@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../../assets/cooking-logo.png';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -19,7 +19,9 @@ const Navbar = () => {
                 <div className="w-10 rounded-full mr-8">
                     <img src='https://static.vecteezy.com/system/resources/previews/011/675/374/original/man-avatar-image-for-profile-png.png' />
                 </div>
-                <button className='bg-slate-700 px-6 py-2 text-white rounded font-medium'>Login</button>
+                <Link to='/login'>
+                    <button className='bg-slate-700 px-6 py-2 text-white rounded cursor-pointer font-medium'>Login</button>
+                </Link>
             </div>
         </nav>
     );
