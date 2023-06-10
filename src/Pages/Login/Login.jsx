@@ -11,7 +11,7 @@ const Login = () => {
     }
     
     return (
-        <div className='bg-sky-100 p-12'>
+        <div className='bg-sky-100 p-12 mt-24'>
             <h1 className='text-center text-3xl font-semibold'>Login</h1>
             <div className='mt-6 bg-white p-12 w-1/2 mx-auto shadow-xl rounded'>
                 <form>
