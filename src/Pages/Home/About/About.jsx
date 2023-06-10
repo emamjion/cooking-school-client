@@ -5,8 +5,8 @@ const About = () => {
     return (
         <div className='my-24'>
             <div className='text-center'>
-                <h1 className='text-2xl text-[#3498db] font-semibold'>About Us</h1>
-                <div className='w-28 mx-auto mb-4 h-1 bg-slate-700'></div>
+                <h1 className='text-3xl font-semibold'>About Us</h1>
+                <div className='w-36 mx-auto mb-4 h-1 bg-[#3498db]'></div>
                 <p>
                     Cooking summer camps provide a nurturing and supportive environment for aspiring <br /> young chefs to explore their passion for cooking, gain valuable culinary skills.
                 </p>
