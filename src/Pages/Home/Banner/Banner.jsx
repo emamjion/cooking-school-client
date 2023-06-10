@@ -15,7 +15,7 @@ const Banner = () => {
         <div className='mt-6'>
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper h-[600px]">
                 <SwiperSlide className='relative'>
-                    <img src={banner1} className='rounded-lg bg-cover bg-center' />
+                    <img src={banner1} className='rounded-lg' />
                     <div className='h-full absolute left-0 bottom-0 flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]'>
                         <div className='text-white space-y-7 ml-24'>
                             <h1 className='text-5xl font-Semibold'>Culinary Education</h1>
@@ -27,7 +27,7 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='relative'>
-                    <img src={banner2} className='rounded-lg bg-cover bg-center' />
+                    <img src={banner2} className='rounded-lg' />
                     <div className='h-full absolute left-0 bottom-0 flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]'>
                         <div className='text-white space-y-7 ml-24'>
                             <h1 className='text-5xl font-Semibold'>Hands-on Experience</h1>
@@ -39,7 +39,7 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='relative'>
-                    <img src={banner3} />
+                    <img src={banner3} className='rounded-lg' />
                     <div className='h-full absolute left-0 bottom-0 flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]'>
                         <div className='text-white space-y-7 ml-24'>
                             <h1 className='text-5xl font-Semibold'>Recipe Exploration</h1>
@@ -51,7 +51,7 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='relative'>
-                    <img src={banner4} />
+                    <img src={banner4} className='rounded-lg' />
                     <div className='h-full absolute left-0 bottom-0 flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]'>
                         <div className='text-white space-y-7 ml-24'>
                             <h1 className='text-5xl font-Semibold'>Teamwork and Collaboration</h1>
@@ -63,7 +63,7 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='relative'>
-                    <img src={banner5} />
+                    <img src={banner5} className='rounded-lg' />
                     <div className='h-full absolute left-0 bottom-0 flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]'>
                         <div className='text-white space-y-7 ml-24'>
                             <h1 className='text-5xl font-Semibold'>Culinary Competitions and Challenges</h1>
@@ -75,7 +75,7 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='relative'>
-                    <img src={banner6} />
+                    <img src={banner6} className='rounded-lg' />
                     <div className='h-full absolute left-0 bottom-0 flex items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]'>
                         <div className='text-white space-y-7 ml-24'>
                             <h1 className='text-5xl font-Semibold'>Lifelong Memories and Skills</h1>
