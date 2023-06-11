@@ -5,14 +5,13 @@ import Footer from '../Pages/Shared/Footer/Footer';
 
 const MainLayout = () => {
     const location = useLocation();
-    const noHeaderFooter = location.pathname.includes('login');
-    const noHeaderFooter2 = location.pathname.includes('register');
+    const noHeaderFooter = location.pathname.includes('login') || location.pathname.includes('register');
     
     return (
         <div>
-            { noHeaderFooter || noHeaderFooter2 || <Navbar/> }
+            { noHeaderFooter || <Navbar/> }
             <Outlet/>
-            { noHeaderFooter || noHeaderFooter2 || <Footer/> }
+            { noHeaderFooter || <Footer/> }
         </div>
     );
 };

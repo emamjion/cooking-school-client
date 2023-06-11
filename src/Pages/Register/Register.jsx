@@ -1,13 +1,30 @@
-import React, { useState } from 'react';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
-
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { createUser, updateProfileUser } = useContext(AuthContext);
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const navigate = useNavigate();
     const onSubmit = data => {
         console.log(data);
+        createUser(data.email, data.password)
+        .then(result => {
+            const createdUser = result.user;
+            console.log(createdUser);
+            updateProfileUser(data.name, data.photo)
+            .then(() => {
+                Swal.fire('User has been created!');
+                reset();
+                navigate('/login');
+            })
+            .catch(error => console.error(error.message))
+        })
+        .catch(error => {
+            console.error(error.message);
+        })
     };
     
     return (
@@ -58,7 +75,7 @@ const Register = () => {
                             })} 
                         />
                         {errors.password?.type === 'minLength' && <p className='text-red-400 font-medium'>Password is less then 6 characters</p>}
-                        {errors.password?.type === 'pattern' && <p className='text-red-400 font-medium'>Password don't have a capital letter</p>}
+                        {errors.password?.type === 'pattern' && <p className='text-red-400 font-medium'>Password don't have a capital letter or Password don't have a Special character</p>}
                     </div>
                     <div className='mt-4'>
                         <span className='text-lg font-medium block mb-1'>Confirm Password</span>
@@ -72,7 +89,7 @@ const Register = () => {
                             })} 
                         />
                         {errors.confirm?.type === 'minLength' && <p className='text-red-400 font-medium'>Password must be less then 6 characters</p>}
-                        {errors.confirm?.type === 'pattern' && <p className='text-red-400 font-medium'>Password don't have a capital letter</p>} 
+                        {errors.password?.type === 'pattern' && <p className='text-red-400 font-medium'>Password don't have a capital letter or Password don't have a Special character</p>}
                     </div>
                     <div className='mt-4 text-center'>
                         <input type="submit" value="Register" className='bg-slate-700 px-6 w-[180px] py-3 cursor-pointer text-white rounded font-medium' />
