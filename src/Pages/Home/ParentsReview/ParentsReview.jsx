@@ -11,8 +11,8 @@ const ParentsReview = () => {
                 <h2 className='text-center font-semibold text-3xl'>Parent's Review</h2>
                 <div className='w-56 mx-auto mb-4 h-1 bg-[#3498db]'></div>
             </div>
-            <div className='flex items-center justify-center gap-6'>
-                <div className='shadow-xl p-6 h-[490px] rounded-lg'>
+            <div className='md:flex items-center justify-center gap-6'>
+                <div className='shadow-xl p-6 md:h-[490px] rounded-lg'>
                     <img className='mx-auto rounded-lg' src={parent1} />
                     <div className='mt-3 text-center'>
                         <h2 className='text-xl font-medium mb-2'>A Culinary Adventure for Young Chefs!</h2>

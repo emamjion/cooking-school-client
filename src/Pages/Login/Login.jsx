@@ -9,12 +9,11 @@ const Login = () => {
     const handleShow = () => {
         setShow(!show);
     }
-    
     return (
         <div className='bg-sky-100 p-12 mt-24'>
             <h1 className='text-center text-3xl font-semibold'>Login</h1>
             <div className='mt-6 bg-white p-12 w-1/2 mx-auto shadow-xl rounded'>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div>
                         <span className='text-lg font-medium block mb-1'>Email</span>
                         <input className='border-2 px-4 py-2 rounded w-full' type="email" placeholder='Enter Your Email' />

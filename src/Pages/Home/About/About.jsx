@@ -11,7 +11,7 @@ const About = () => {
                     Cooking summer camps provide a nurturing and supportive environment for aspiring <br /> young chefs to explore their passion for cooking, gain valuable culinary skills.
                 </p>
             </div>
-            <div className='flex items-center justify-center mt-16 gap-6'>
+            <div className='md:flex items-center justify-center mt-16 gap-6'>
                 <div className='space-y-3'>
                     <h1 className='text-2xl font-semibold'>Why Choose Us</h1>
                     <p>
