@@ -20,7 +20,7 @@ const Navbar = () => {
             <ul id='navlist'>
                 <NavLink className='mr-6 font-semibold text-xl' to='/'>Home</NavLink>
                 <NavLink className='mr-6 font-semibold text-xl' to='/dashboard'>Dashboard</NavLink>
-                <NavLink className='mr-6 font-semibold text-xl' to='/instructor'>Instructor</NavLink>
+                <NavLink className='mr-6 font-semibold text-xl' to='/instructors'>Instructors</NavLink>
                 <NavLink className=' font-semibold text-xl' to='/classes'>Classes</NavLink>
             </ul>
             <div className='flex items-center'>

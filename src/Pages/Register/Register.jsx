@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Register = () => {
     const { createUser, updateProfileUser } = useContext(AuthContext);
@@ -98,6 +99,7 @@ const Register = () => {
                 <div className='text-center mt-4'>
                     <p className='font-medium'>Already Have an Account? <Link className='text-[#3498db] font-semibold' to='/login'>Login</Link></p>
                 </div>
+                <SocialLogin/>
             </div>
         </div>
     );
