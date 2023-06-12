@@ -3,10 +3,12 @@ import logo from '../../../assets/cooking-logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaBookmark } from 'react-icons/fa';
+import useBooked from '../../../Hook/UseBooked';
 
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [ booked ] = useBooked();
     const handleLogOut = () => {
         logOut()
         .then(() => {})
@@ -25,7 +27,7 @@ const Navbar = () => {
                 <NavLink className=' font-semibold text-xl' to='/classes'>Classes</NavLink>
                 <Link className=' font-semibold text-xl ml-6 flex items-center gap-2 outline outline-[#3498db] p-2 rounded' to='/'>
                     <span className=''> < FaBookmark /> </span>
-                    <div className="badge badge-neutral">+0</div>
+                    <div className="badge badge-neutral">+{booked?.length || 0}</div>
                 </Link>
             </ul>
             <div className='flex items-center'>
