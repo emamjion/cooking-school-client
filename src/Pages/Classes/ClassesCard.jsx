@@ -12,7 +12,7 @@ const ClassesCard = ({classesElem}) => {
     const [, refetch] = useBooked();
     
     const handleBooked = item => {
-        // console.log(item);
+        console.log(item);
         
         if(user && user.email) {
             const bookedItem = {
@@ -20,6 +20,7 @@ const ClassesCard = ({classesElem}) => {
                 coursename,
                 courseimg,
                 availableseat,
+                instructorname,
                 price,
                 email : user?.email
 

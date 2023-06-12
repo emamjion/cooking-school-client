@@ -1,8 +1,11 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { FaBookmark, FaWallet, FaArchive, FaHome, FaUserGraduate, FaReadme } from 'react-icons/fa';
+import useBooked from '../Hook/UseBooked';
 
 const DashboardLayout = () => {
+    const [booked] = useBooked();
+    
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -18,48 +21,49 @@ const DashboardLayout = () => {
                     <h1 className='text-3xl font-medium mb-6'>Cooking Camp</h1>
                     {/* Sidebar content here */}
                     <li>
-                        <Link to='selected-class'>
+                        <NavLink to='/dashboard/user-home'>
                             <span className=''> < FaHome /> </span>
                             User Home
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='selected-class'>
+                        <NavLink to='/dashboard/selected-class'>
                             <span className=''> < FaBookmark /> </span>
                             My Selected Classes
-                        </Link>
+                            <div className="badge badge-neutral">+{booked?.length || 0}</div>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='selected-class'>
+                        <NavLink to='/dashboard/payment-history'>
                             <span className=''> < FaWallet /> </span>
                             Payment History
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='selected-class'>
+                        <NavLink to='enrolled-class'>
                             <span className=''> < FaArchive /> </span>
                             My Enrolled Classes
-                        </Link>
+                        </NavLink>
                     </li>
                     <div className="divider"></div>
 
                     <li>
-                        <Link to='/'>
+                        <NavLink to='/'>
                             <span className=''> < FaHome /> </span>
                             Home
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='/instructors'>
+                        <NavLink to='/instructors'>
                             <span className=''> < FaUserGraduate /> </span>
-                            My Selected Classes
-                        </Link>
+                            Instructors
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to='/classes'>
+                        <NavLink to='/classes'>
                             <span className=''> < FaReadme /> </span>
                             Classes
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>
             
