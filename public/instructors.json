@@ -1,38 +1,32 @@
 [
     {
-        "id" : "1",
-        "image" : "",
+        "image" : "https://i.ibb.co/T469P5j/instructor1.png",
         "name" : "Johan Khan",
         "email" : "johan@khan.com"
     },
     {
-        "id" : "2",
-        "image" : "",
-        "name" : "Elami Elma",
-        "email" : "elami@gmail.com"
+        "image" : "https://i.ibb.co/7476brg/instructor2.png",
+        "name" : "Ramisa Khan",
+        "email" : "ramisa@gmail.com"
     },
     {
-        "id" : "3",
-        "image" : "",
-        "name" : "Khokon Mirza",
-        "email" : "khokonmirza@gmail.com"
+        "image" : "https://i.ibb.co/BBVZ78N/instructor5.png",
+        "name" : "Rajia Sultana",
+        "email" : "rajiasultana@gmail.com"
     },
     {
-        "id" : "4",
-        "image" : "",
-        "name" : "John Ikram",
-        "email" : "john@ikram.com"
+        "image" : "https://i.ibb.co/ckJmVGb/instructor3.png",
+        "name" : "Dalim Hannan",
+        "email" : "dalim@hannan.com"
     },
     {
-        "id" : "5",
-        "image" : "",
-        "name" : "Jakiya Sultana",
-        "email" : "jakiya121@gmail.com"
+        "image" : "https://i.ibb.co/fXMNbK0/instructor6.png",
+        "name" : "Jakir Sultan",
+        "email" : "jakir121@gmail.com"
     },
     {
-        "id" : "6",
-        "image" : "",
-        "name" : "Khan Jahan Ali",
-        "email" : "khanjahan@ali.com"
+        "image" : "https://i.ibb.co/7j0tBBp/instructor4.png",
+        "name" : "Ibrahim Uddin",
+        "email" : "ibrahimuddin@gamil.com"
     }
 ]
