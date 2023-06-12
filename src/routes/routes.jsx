@@ -11,6 +11,7 @@ import SelectedClass from "../Pages/Dashboard/SelectedClass/SelectedClass";
 import EnrolledClass from "../Pages/Dashboard/EnrolledClass/EnrolledClass";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <DashboardLayout/>,
+        element: <PrivateRoutes> <DashboardLayout/> </PrivateRoutes>,
         children: [
             {
                 path: 'user-home',

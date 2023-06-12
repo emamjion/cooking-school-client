@@ -16,17 +16,35 @@ const SocialLogin = () => {
             const loggedUser = result.user;
             console.log(loggedUser);
 
-            Swal.fire({
-                title: 'Login Successful',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                }
-            });
+            const savedUser = {
+                name : loggedUser.displayName,
+                email : loggedUser.email,
+                photo : loggedUser.photoURL
 
-            navigate(from, {replace: true});
+            }
+            fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type' : 'application/json'
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                .then(res => res.json())
+                .then(() => {
+                    navigate(from, {replace: true});
+                })
+
+            // Swal.fire({
+            //     title: 'Login Successful',
+            //     showClass: {
+            //         popup: 'animate__animated animate__fadeInDown'
+            //     },
+            //     hideClass: {
+            //         popup: 'animate__animated animate__fadeOutUp'
+            //     }
+            // });
+
+            
 
         })
     }

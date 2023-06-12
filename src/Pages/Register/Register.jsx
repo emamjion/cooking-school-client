@@ -14,12 +14,32 @@ const Register = () => {
         createUser(data.email, data.password)
         .then(result => {
             const createdUser = result.user;
-            console.log(createdUser);
+            // console.log(createdUser);
             updateProfileUser(data.name, data.photo)
             .then(() => {
-                Swal.fire('User has been created!');
-                reset();
-                navigate('/login');
+                
+                const savedUser = {
+                    name : data.name,
+                    email : data.email,
+                    photo : data.photo
+
+                }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type' : 'application/json'
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.insertedId){
+                        reset();
+                        Swal.fire('User has been created!');
+                        navigate('/login');
+                    }
+                })
+                
             })
             .catch(error => console.error(error.message))
         })
