@@ -3,11 +3,12 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { FaBookmark, FaWallet, FaArchive, FaHome, FaUserGraduate, FaReadme, FaUsers, FaPlus } from 'react-icons/fa';
 import useBooked from '../Hook/UseBooked';
 import useAdmin from '../Hook/useAdmin';
+import useInstructor from '../Hook/useInstructor';
 
 const DashboardLayout = () => {
     const [booked] = useBooked();
     // const isAdmin = true;
-    const isInstructor = false;
+    const [isInstructor] = useInstructor();
     const [isAdmin] = useAdmin();
 
 
