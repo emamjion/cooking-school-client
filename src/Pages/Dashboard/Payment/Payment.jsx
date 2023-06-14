@@ -22,6 +22,7 @@ const Payment = () => {
             <Elements stripe={stripePromise}>
                 <CheckoutForm
                     price={price}
+                    booked={booked}
                 />
             </Elements>
         </div>

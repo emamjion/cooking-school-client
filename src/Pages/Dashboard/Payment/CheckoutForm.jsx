@@ -4,22 +4,26 @@ import useAxiosSecure from '../../../Hook/useAxiosSecure';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 
-const CheckoutForm = ({price}) => {
+const CheckoutForm = ({price, booked}) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
     const { user } = useContext(AuthContext);
+    const [processing, setProcessing] = useState(false);
+    const [transactionId, setTransactionId] = useState('');
 
 
     const [axiosSecure] = useAxiosSecure();
     const [clientSecret, setClientSecret] = useState('');
     useEffect(() => {
-        axiosSecure.post('/create-payment-intent', {price})
-        .then(res => {
-            console.log(res.data.clientSecret);
-            setClientSecret(res.data.clientSecret);
-        })
-    }, []); // [price, axiosSecure]
+        if(price > 0){
+            axiosSecure.post('/create-payment-intent', {price})
+            .then(res => {
+                // console.log(res.data.clientSecret);
+                setClientSecret(res.data.clientSecret);
+            })
+        }
+    }, [price, axiosSecure]); // [price, axiosSecure]
 
 
     const handleSubmit = async(event) => {
@@ -33,7 +37,7 @@ const CheckoutForm = ({price}) => {
         if (card === null) {
             return;
         }
-        console.log('card info', card);
+        // console.log('card info', card);
         const {error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card,
@@ -46,6 +50,8 @@ const CheckoutForm = ({price}) => {
             setCardError('');
             console.log('payment method', paymentMethod);
         }
+
+        setProcessing(true);
 
         const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(
             clientSecret,
@@ -64,12 +70,38 @@ const CheckoutForm = ({price}) => {
             // setCardError()
             console.log(confirmError);
         }
-        console.log(paymentIntent);
+        // console.log(paymentIntent);
+        
+        setProcessing(false);
+        if(paymentIntent.status === 'succeeded'){
+            setTransactionId(paymentMethod.id);
+            
+            // const transactionId = paymentIntent.id;
+            // save payment information
+            const payment = {
+                email : user?.email,
+                transactionId: paymentMethod.id,
+                price,
+                date : new Date(),
+                quantity : booked.length,
+                status : 'pending',
+                bookeditems: booked.map(item => item._id),
+                prevItemsId : booked.map(item => item.itemId),
+                itemName : booked.map(item => item.name)
+            }
+            axiosSecure.post('/payments', payment)
+            .then(res => {
+                console.log(res.data);
+                if(res.data.insertedId){
+                    alert('display message')
+                }
+            })
+        }
     }
     
     return (
         <>
-            <form onSubmit={handleSubmit} className='w-2/3'>
+            <form onSubmit={handleSubmit} className='w-2/3 shadow-xl bg-white'>
                 <CardElement
                     options={{
                     style: {
@@ -85,12 +117,14 @@ const CheckoutForm = ({price}) => {
                         },
                     },
                 }}
+                className='border-2 border-black p-4 rounded-lg'
                 />
-                <button type="submit" disabled={ !stripe || !clientSecret } className='bg-slate-700 mt-6 px-6 py-2 w-full text-white rounded cursor-pointer font-medium'>
+                <button type="submit" disabled={ !stripe || !clientSecret || processing } className='bg-slate-700 mt-6 px-6 py-2 w-full text-white rounded cursor-pointer font-medium'>
                 Pay
                 </button>
             </form>
             {cardError && <p className='text-red-500 mt-4 font-medium'> {cardError} </p>}
+            {transactionId && <p className='text-green-500 font-medium mt-3'>Transaction complete!! & your txId is : {transactionId}</p>}
         </>
     );
 };
