@@ -4,7 +4,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import useAxiosSecure from './useAxiosSecure';
 
 
-const useBooked = () => {
+const useBooked = (id) => {
     const { user, loading } = useContext(AuthContext);
     const token = localStorage.getItem('access-token')
     const [axiosSecure] = useAxiosSecure();
@@ -14,6 +14,9 @@ const useBooked = () => {
         enabled: !loading,
         queryFn: async() => {
             const response = await axiosSecure(`/booked?email=${user?.email}`);
+            if(id){
+                return response.data.filter(singleClass => singleClass._id == id);
+            }
             return response.data;
         },
     })

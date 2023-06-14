@@ -7,7 +7,7 @@ import PopularInstructors from '../PopularInstructors/PopularInstructors';
 
 const Home = () => {
     return (
-        <div className=''>            
+        <div className='dark:bg-black dark:text-white'>            
             {/* Banner section */}
             <Banner/>
 

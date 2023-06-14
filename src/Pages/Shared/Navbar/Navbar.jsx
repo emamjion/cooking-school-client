@@ -1,12 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import logo from '../../../assets/cooking-logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
-import { FaBookmark } from 'react-icons/fa';
+import { FaBookmark, FaMoon, FaSun } from 'react-icons/fa';
 import useBooked from '../../../Hook/UseBooked';
 
 
 const Navbar = () => {
+    const [theme, setTheme] = useState(null);
+    useEffect(() => {
+        if(theme === 'dark'){
+            document.documentElement.classList.add('dark');
+        }
+        else{
+            document.documentElement.classList.remove('dark')
+        }
+    }, [theme]);
+
+    const handleThemeSwitch = () => {
+        setTheme(theme === 'dark' ? 'light' : 'dark');
+    }
+    
     const { user, logOut } = useContext(AuthContext);
     const [ booked ] = useBooked();
     const handleLogOut = () => {
@@ -15,7 +29,7 @@ const Navbar = () => {
         .catch(error => console.error(error.message))
     }
     return (
-        <nav className='flex items-center justify-between shadow-xl px-6 py-3 h-[100px]'>
+        <nav className='flex items-center justify-between shadow-xl px-6 py-3 h-[100px] dark:bg-black dark:text-white'>
             <div className='flex items-center gap-2'>
                 <img className='w-[80px] h-[80px]' src={logo} />
                 <h2 className='text-3xl font-semibold'>Cooking Camp</h2>
@@ -33,8 +47,8 @@ const Navbar = () => {
             <div className='flex items-center'>
                 {/* TODO : dark/light theme */}
                 {/* dark / light -- changing theme */}
-                <div className=''>
-                    hello
+                <div className='flex items-center gap-4 text-2xl cursor-pointer'>
+                    <span onClick={handleThemeSwitch}> < FaMoon /> </span>
                 </div>
                 
                 {

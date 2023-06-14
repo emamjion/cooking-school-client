@@ -2,6 +2,7 @@ import React from 'react';
 import useBooked from '../../../Hook/UseBooked';
 import { FaTrashAlt, FaWallet } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const SelectedClass = () => {
     const [ booked, refetch ] = useBooked();
@@ -87,7 +88,9 @@ const SelectedClass = () => {
                                     ${book.price}
                                 </td>
                                 <td>
-                                    <button className='btn btn-lg'> < FaWallet /> </button>
+                                    <Link to={`/dashboard/payment/${book._id}`}>
+                                        <button  className='btn btn-lg'> < FaWallet /> </button>
+                                    </Link>
                                 </td>
                                 <td>
                                     <button onClick={() => handleDelete(book)} className='btn btn-lg'> < FaTrashAlt /> </button>
@@ -98,7 +101,7 @@ const SelectedClass = () => {
                         
                     </table>
                 </div>
-            </div>
+        </div>
     );
 };
 

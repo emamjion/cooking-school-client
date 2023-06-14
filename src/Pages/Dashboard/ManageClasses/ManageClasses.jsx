@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const MyClass = () => {
+const ManageClasses = () => {
     const [myClasses, setMyClasses] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/class')
@@ -9,6 +9,7 @@ const MyClass = () => {
             setMyClasses(data);
         })
     }, [])
+    
     return (
         <div className='w-full px-6'>
             <h1 className='text-2xl font-medium text-center mb-4'>My Selected Class : {myClasses.length}</h1>
@@ -88,4 +89,4 @@ const MyClass = () => {
     );
 };
 
-export default MyClass;
+export default ManageClasses;

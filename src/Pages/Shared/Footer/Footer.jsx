@@ -6,7 +6,7 @@ import { FaInstagram, FaLinkedinIn, FaTwitter  } from "react-icons/fa";
 const Footer = () => {
     return (
         <footer>
-            <div className="footer p-10 shadow-xl bg-base-100 text-base-content mt-12">
+            <div className="footer p-10 shadow-xl bg-base-100 text-base-content mt-12 dark:bg-black dark:text-white">
                 <div>
                     <img className='w-[120px] h-[120px]' src={logo} />
                     <h1 className='font-semibold text-2xl'>Cooking Camp</h1>
