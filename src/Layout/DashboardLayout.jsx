@@ -57,7 +57,7 @@ const DashboardLayout = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/manage-classes'>
+                                <NavLink to='/dashboard/add-class'>
                                     <span className=''> < FaPlus /> </span>
                                     Add a Class
                                 </NavLink>
@@ -69,7 +69,7 @@ const DashboardLayout = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/my-classes'>
+                                <NavLink to='/dashboard/'>
                                     <span className=''> < FaUsers /> </span>
                                     Total Enrolled Students
                                 </NavLink>

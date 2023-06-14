@@ -71,6 +71,7 @@ const ClassesCard = ({classesElem}) => {
                 <p className='text-[#3498db] font-medium'>{instructorname}</p>
                 <p>Price : ${price}</p>
                 <p>Available Seat: {availableseat}</p>
+
                 <div className="card-actions justify-center">
                     <button onClick={() => handleBooked(classesElem)} className="bg-slate-700 px-6 py-2 text-white rounded cursor-pointer font-medium">Select</button>
                 </div>

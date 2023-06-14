@@ -25,12 +25,18 @@ const Navbar = () => {
                 <NavLink className='mr-6 font-semibold text-xl' to='/dashboard'>Dashboard</NavLink>
                 <NavLink className='mr-6 font-semibold text-xl' to='/instructors'>Instructors</NavLink>
                 <NavLink className=' font-semibold text-xl' to='/classes'>Classes</NavLink>
-                <Link className=' font-semibold text-xl ml-6 flex items-center gap-2 outline outline-[#3498db] p-2 rounded' to='/'>
+                <Link className=' font-semibold text-xl ml-6 flex items-center gap-2 outline outline-[#3498db] p-2 rounded' to='/dashboard/selected-class'>
                     <span className=''> < FaBookmark /> </span>
                     <div className="badge badge-neutral">+{booked?.length || 0}</div>
                 </Link>
             </ul>
             <div className='flex items-center'>
+                {/* TODO : dark/light theme */}
+                {/* dark / light -- changing theme */}
+                <div className=''>
+                    hello
+                </div>
+                
                 {
                     user ? <>
                         <div className=" ml-12 mr-8 mt-3">

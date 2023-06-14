@@ -7,7 +7,7 @@ import PopularInstructors from '../PopularInstructors/PopularInstructors';
 
 const Home = () => {
     return (
-        <div className=''>
+        <div className=''>            
             {/* Banner section */}
             <Banner/>
 
