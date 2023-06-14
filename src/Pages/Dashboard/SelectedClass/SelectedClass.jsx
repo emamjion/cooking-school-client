@@ -17,7 +17,7 @@ const SelectedClass = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 
-                fetch(`http://localhost:5000/booked/${book._id}`, {
+                fetch(`https://cooking-school-server.vercel.app/booked/${book._id}`, {
                     method: 'DELETE',
                 })
                 .then(res => res.json())

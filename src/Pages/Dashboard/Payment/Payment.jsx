@@ -14,13 +14,15 @@ const Payment = () => {
     }
     const [booked] = useBooked(id);
     const total = booked.reduce((prev, item) => prev + parseFloat(item.price), 0);
-    console.log(total);
+    const price = parseFloat(total.toFixed(2));
     
     return (
         <div className='w-full px-20'>
             <h1 className='text-3xl font-medium text-center mb-6'>Payment</h1>
             <Elements stripe={stripePromise}>
-                <CheckoutForm/>
+                <CheckoutForm
+                    price={price}
+                />
             </Elements>
         </div>
     );

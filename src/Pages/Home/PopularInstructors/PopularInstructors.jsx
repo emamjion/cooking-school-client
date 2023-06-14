@@ -4,7 +4,7 @@ import PopularInstructor from './PopularInstructor';
 const PopularInstructors = () => {
     const [popularInstructors, setPopularInstructors] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/instructors')
+        fetch('https://cooking-school-server.vercel.app/instructors')
         .then(res => res.json())
         .then(data => {
             setPopularInstructors(data);

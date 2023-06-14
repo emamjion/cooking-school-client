@@ -4,7 +4,7 @@ import ClassesCard from './ClassesCard';
 const AllClasses = () => {
     const [classes, setClasses] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/class')
+        fetch('https://cooking-school-server.vercel.app/class')
         .then(res => res.json())
         .then(data => {
             // console.log(data);

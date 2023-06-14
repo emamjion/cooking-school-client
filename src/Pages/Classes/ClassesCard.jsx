@@ -25,7 +25,7 @@ const ClassesCard = ({classesElem}) => {
                 email : user?.email
 
             }
-            fetch('http://localhost:5000/booked', {
+            fetch('https://cooking-school-server.vercel.app/booked', {
                 method: 'POST',
                 headers: {
                     'content-type' : 'application/json'
