@@ -17,6 +17,4 @@
 ### My website link is: ###
 https://cooking-camp-client.web.app/
 
-### admin email and password ###
-* email : cooking@camp1.com
-* pass: 123456A#
+
